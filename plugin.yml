@@ -1,0 +1,28 @@
+name: FKPlug
+version : 1.0
+authour : Dragon
+main : fk.dragon.fkplug.Main
+
+commands :
+  plugin:
+    description: On tente !
+    permission: plugin.use
+  trad: 
+    description: trad
+    permission: trad.use
+
+  discord: 
+    description: discord message
+    permission: discord.use
+    
+  discordall: 
+    description: discord broadcast
+    permission: discordall.use
+
+  mumble: 
+    description: mumble message
+    permission: mumble.use
+ 
+  mumbleall: 
+    description: mumble broadcast
+    permission: mumbleall.use
