@@ -26,3 +26,7 @@ commands :
   mumbleall: 
     description: mumble broadcast
     permission: mumbleall.use
+    
+  toggleTeleport: 
+    description: Active la height border 
+    permission: toggleTeleport.use
