@@ -35,7 +35,7 @@ public class GMCommand implements CommandExecutor, TabCompleter {
         Player player = (Player) sender;
 
         if (args.length != 1) {
-            player.sendMessage("§6[§3FK§6]§8 » §cLa commande s'utilise comme ça : /gm [§20 §c| §61 §c| §a2 §c| §53§c]");
+            player.sendMessage("§6[§3FK§6]§8 » §cLa commande s'utilise comme ça : /gm [§20§c,§2s §c| §61§c,§6c §c| §a2§c,§aa §c| §53§c,§5sp§c]");
             return false;
         }
 
@@ -43,28 +43,28 @@ public class GMCommand implements CommandExecutor, TabCompleter {
         
         player.sendMessage("");
         
-        if (gm.equalsIgnoreCase("0")) {
+        if (gm.equalsIgnoreCase("0") || gm.equalsIgnoreCase("s")) {
         	player.setGameMode(GameMode.SURVIVAL);
             player.sendMessage("§6[§3FK§6]§8 » §7Mode de jeu définit sur §2Survie §7!");
         } 
         
-        if (gm.equalsIgnoreCase("1")) {
+        if (gm.equalsIgnoreCase("1") || gm.equalsIgnoreCase("c")) {
         	player.setGameMode(GameMode.CREATIVE);
             player.sendMessage("§6[§3FK§6]§8 » §7Mode de jeu définit sur §6Créatif §7!");
         } 
         
-        if (gm.equalsIgnoreCase("2")) {
+        if (gm.equalsIgnoreCase("2") || gm.equalsIgnoreCase("a")) {
         	player.setGameMode(GameMode.ADVENTURE);
             player.sendMessage("§6[§3FK§6]§8 » §7Mode de jeu définit sur §aAventure §7!");
         } 
         
-        if (gm.equalsIgnoreCase("3")) {
+        if (gm.equalsIgnoreCase("3") || gm.equalsIgnoreCase("sp")) {
         	player.setGameMode(GameMode.SPECTATOR);
             player.sendMessage("§6[§3FK§6]§8 » §7Mode de jeu définit sur §5Spectateur §7!");
         } 
         
-        if (!gm.equalsIgnoreCase("0") && !gm.equalsIgnoreCase("1") && !gm.equalsIgnoreCase("2") && !gm.equalsIgnoreCase("3")) {
-            player.sendMessage("§6[§3FK§6]§8 » §cErreur : choisit entre /gm [§20 §c| §61 §c| §a2 §c| §53§c]");
+        if (!gm.equalsIgnoreCase("0") && !gm.equalsIgnoreCase("1") && !gm.equalsIgnoreCase("2") && !gm.equalsIgnoreCase("3") && !gm.equalsIgnoreCase("s") && !gm.equalsIgnoreCase("c") && !gm.equalsIgnoreCase("a") && !gm.equalsIgnoreCase("sp")) {
+            player.sendMessage("§6[§3FK§6]§8 » §cErreur : choisit entre /gm [§20§c,§2s §c| §61§c,§6c §c| §a2§c,§aa §c| §53§c,§5sp§c]");
         }
 
 

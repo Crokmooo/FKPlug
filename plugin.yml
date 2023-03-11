@@ -34,3 +34,15 @@ commands :
   gm: 
     description: Switch Gamemode plus simplement
     permission: gm.use
+
+  fkrl: 
+    description: reload
+    permission: fkrl.use
+    
+  lockinv: 
+    description: Verrouille l'inventaire de tout les joueurs
+    permission: lockinv.use    
+
+  heal: 
+    description: Soigne le joueur
+    permission: heal.use    
