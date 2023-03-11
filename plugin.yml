@@ -30,3 +30,7 @@ commands :
   toggleTeleport: 
     description: Active la height border 
     permission: toggleTeleport.use
+
+  gm: 
+    description: Switch Gamemode plus simplement
+    permission: gm.use

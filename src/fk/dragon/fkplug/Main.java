@@ -15,6 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import fk.dragon.fkplug.commands.DiscordAllCommand;
 import fk.dragon.fkplug.commands.DiscordCommand;
+import fk.dragon.fkplug.commands.GMCommand;
 import fk.dragon.fkplug.commands.MumbleAllCommand;
 import fk.dragon.fkplug.commands.MumbleCommand;
 import fk.dragon.fkplug.commands.PluginCommand;
@@ -29,6 +30,7 @@ public class Main extends JavaPlugin implements Listener{
 		getCommand("discordall").setExecutor(new DiscordAllCommand());
 		getCommand("mumble").setExecutor(new MumbleCommand());
 		getCommand("mumbleall").setExecutor(new MumbleAllCommand());
+		getCommand("gm").setExecutor(new GMCommand());
 		
 	    PluginCommand pluginCommand = new PluginCommand();
 	    getCommand("plugin").setExecutor(pluginCommand);
@@ -68,10 +70,12 @@ public class Main extends JavaPlugin implements Listener{
             Location destination = new Location(player.getWorld(), 0.5, 53.5, 0.5);
             destination.setYaw(270);
             player.teleport(destination);
+            player.setFallDistance(0);
+            
         }
     }
 
-    private boolean teleportEnabled = false;
+    private boolean teleportEnabled = true;
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("toggleTeleport")) {
