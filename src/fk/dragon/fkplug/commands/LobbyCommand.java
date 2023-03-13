@@ -4,7 +4,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -27,22 +26,18 @@ public class LobbyCommand implements CommandExecutor {
         }
 
         Player player = (Player) sender;
-        if (player.getServer().getName().equalsIgnoreCase("Spawn")) {
-            player.teleport(new Location(player.getWorld(), 0.5, 54.2, 0.5));
-            player.sendMessage("§6[§3FK§6]§8 » §7Téléportation au §6spawn§7...");
-        } else {
-            player.sendMessage("§6[§3FK§6]§8 » §7Redirection vers le serveur §6Lobby§7...");
-            // Redirection du joueur vers le serveur "Lobby" via l'API BungeeCord
-            ByteArrayOutputStream b = new ByteArrayOutputStream();
-            DataOutputStream out = new DataOutputStream(b);
-            try {
-                out.writeUTF("Connect");
-                out.writeUTF("Spawn");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            player.sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
+        player.sendMessage("§6[§3FK§6]§8 » §7Redirection vers le serveur §6Lobby§7...");
+
+        // Redirection du joueur vers le serveur "Lobby" via l'API BungeeCord
+        ByteArrayOutputStream b = new ByteArrayOutputStream();
+        DataOutputStream out = new DataOutputStream(b);
+        try {
+            out.writeUTF("Connect");
+            out.writeUTF("Spawn");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        player.sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
 
         return true;
     }

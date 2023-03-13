@@ -1,6 +1,5 @@
 package fk.dragon.fkplug.events;
 
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -10,12 +9,8 @@ public class NoDrowningDamage implements Listener {
     
     @EventHandler
     public void onPlayerDamage(EntityDamageEvent event) {
-        Entity p = event.getEntity();
-        if (p.getServer().getName().equalsIgnoreCase("Spawn")) {
-
 	        if (event.getEntity() instanceof Player && event.getCause() == EntityDamageEvent.DamageCause.DROWNING) {
 	            event.setCancelled(true);
 	        }
-        }
     }
 }

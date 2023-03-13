@@ -22,7 +22,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import fk.dragon.fkplug.commands.LobbyCommand;
 import fk.dragon.fkplug.commands.DiscordAllCommand;
 import fk.dragon.fkplug.commands.DiscordCommand;
 import fk.dragon.fkplug.commands.GMCommand;
@@ -55,9 +54,9 @@ public class Main extends JavaPlugin implements Listener{
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new NoDrowningDamage(), this);
         
-		getCommand("lobby").setExecutor(new LobbyCommand(this));
-		getCommand("hub").setExecutor(new LobbyCommand(this));
-		getCommand("spawn").setExecutor(new SpawnCommand());
+		getCommand("lobby").setExecutor(new SpawnCommand(this));
+		getCommand("hub").setExecutor(new SpawnCommand(this));
+		getCommand("spawn").setExecutor(new SpawnCommand(this));
 
 		getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 	    
@@ -76,26 +75,25 @@ public class Main extends JavaPlugin implements Listener{
         player.setHealth(player.getMaxHealth());
         player.setSaturation(20);
         player.setFoodLevel(20);
-        if (player.getServer().getName().equalsIgnoreCase("Spawn")) {
-
-        	Location spawnLocation = new Location(player.getWorld(), 0.5, 54.5, 0.5);
-            spawnLocation.setYaw(270);
-            player.teleport(spawnLocation);
-            
-            if (player.isOp()) {
-                // Ajouter l'item dans le slot d'inventaire 7
-                ItemStack item = new ItemStack(Material.MAGMA_CREAM, 1);
-                ItemMeta meta = item.getItemMeta();
-                meta.setDisplayName("§6Cosmétiques");
-                meta.addEnchant(Enchantment.DEPTH_STRIDER, 0, true);
-                meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS);
-                item.setItemMeta(meta);
-                player.getInventory().setItem(6, item);
-                
-                player.updateInventory();
-            }
+        Location spawnLocation = new Location(player.getWorld(), 0.5, 54.5, 0.5);
+        spawnLocation.setYaw(270);
+        player.teleport(spawnLocation);
         
-        }	
+	
+        
+        if (player.isOp()) {
+            // Ajouter l'item dans le slot d'inventaire 7
+            ItemStack item = new ItemStack(Material.MAGMA_CREAM, 1);
+            ItemMeta meta = item.getItemMeta();
+            meta.setDisplayName("§6Cosmétiques");
+            meta.addEnchant(Enchantment.DEPTH_STRIDER, 0, true);
+            meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS);
+            item.setItemMeta(meta);
+            player.getInventory().setItem(6, item);
+            
+            player.updateInventory();
+        }
+	
 	
 	}
 
@@ -162,18 +160,15 @@ public class Main extends JavaPlugin implements Listener{
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         Player player = event.getPlayer();
-
-        if (player.getServer().getName().equalsIgnoreCase("Spawn")) {
-
-	        Location location = player.getLocation();
-	        int y = location.getBlockY();
-	        if (y < -40 && teleportEnabled) {
-	            Location destination = new Location(player.getWorld(), 0.5, 54.5, 0.5);
-	            destination.setYaw(270);
-	            player.teleport(destination);
-	            player.setFallDistance(0);
-	        	}
-	        }
+        Location location = player.getLocation();
+        int y = location.getBlockY();
+        if (y < -40 && teleportEnabled) {
+            Location destination = new Location(player.getWorld(), 0.5, 54.5, 0.5);
+            destination.setYaw(270);
+            player.teleport(destination);
+            player.setFallDistance(0);
+            
+        }
     }
 
     private boolean teleportEnabled = true;
