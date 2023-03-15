@@ -50,12 +50,4 @@ commands :
   lobby:
     description: Téléporte le joueur au spawn du Lobby
     permission: lobby.use
-
-  hub:
-    description: Téléporte le joueur au spawn du Hub
-    permission: hub.use
-
-    
-  spawn:
-    description: Téléporte le joueur au spawn du serveur
-    permission: spawn.use
+    aliases: [hub,spawn]
