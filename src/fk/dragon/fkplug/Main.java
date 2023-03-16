@@ -339,18 +339,22 @@ public class Main extends JavaPlugin implements Listener{
         ItemStack clickedItem = event.getCurrentItem();
         Inventory clickedInventory = event.getClickedInventory();
         InventoryType inventoryType = clickedInventory.getType();
-
-        if (inventoryType != InventoryType.CRAFTING && inventoryType != InventoryType.PLAYER) {
+        
+        if (clickedInventory != null && clickedInventory.getSize() == 45/*inventoryType != InventoryType.CRAFTING && inventoryType != InventoryType.PLAYER*/) {
 	        ItemMeta meta = clickedItem.getItemMeta();
 	
 			if (meta != null && meta.hasDisplayName() && meta.getDisplayName().equals("§9Discord")) {        	
 				player.performCommand("discord");
+            	player.closeInventory();
+	            event.setCancelled(true);
 			}
 			
 			if (meta != null && meta.hasDisplayName() && meta.getDisplayName().equals("§dSite web")) {        	
 				player.sendMessage("");
 				player.sendMessage("§6[§3FK§6]§8 » §7Vous pouvez retrouver notre site web via ce lien : §dfkteam.online§7.");
 				player.sendMessage("");
+            	player.closeInventory();
+	            event.setCancelled(true);
 			
 			}
 			
@@ -358,6 +362,8 @@ public class Main extends JavaPlugin implements Listener{
 				player.sendMessage("");
 				player.sendMessage("§6[§3FK§6]§8 » §7Nous avons aussi un serveur §5Moddé§7 ! Vous pouvez télécharger le Modpack via ce lien : §6https://www.curseforge.com/minecraft/modpacks/dragonniums-pack§7.");
 				player.sendMessage("");
+            	player.closeInventory();
+	            event.setCancelled(true);
 
 			}
 			
@@ -365,6 +371,8 @@ public class Main extends JavaPlugin implements Listener{
 				player.sendMessage("");
 				player.sendMessage("§6[§3FK§6]§8 » §7Vous pouvez accéder à votre profil sur notre site web via ce lien §8:§3 https://fkteam.online/profil/" + player.getName() + "§7.");
 				player.sendMessage("");
+            	player.closeInventory();
+	            event.setCancelled(true);
 
 			}
 			
@@ -372,6 +380,8 @@ public class Main extends JavaPlugin implements Listener{
 	            Location PVP = new Location(player.getWorld(), 0, 52.5, 41.5);
 	            PVP.setYaw(360);
 	            player.teleport(PVP);
+            	player.closeInventory();
+	            event.setCancelled(true);
 	    	}    
 	    	
 	    	if (clickedItem != null && clickedItem.getType() == Material.GRASS) {
@@ -396,10 +406,11 @@ public class Main extends JavaPlugin implements Listener{
 	                e.printStackTrace();
 	            }
 	            player.sendPluginMessage(this, "BungeeCord", b.toByteArray());
-	    	}
+	    		}
+        	
 	            // Fermez l'inventaire
-	        	
-	            
+        	
+	
 	            
 	            // Empêchez la propagation de l'événement
 	            if (player.getGameMode() == GameMode.ADVENTURE) {
