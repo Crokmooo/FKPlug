@@ -1,0 +1,34 @@
+name: FKPlug
+version : 1.0
+author : Crokmoo
+main : fk.crokmoo.plug.Main
+api-version: 1.19
+
+commands:
+  lobby :
+    description: Retourne le joueur vers le lobby.
+    permission: lobby.use
+    aliases:
+      - hub
+      -
+  tpfar :
+    description: Téléporte le joueur à des coordonnées aléatoires entre -5000 et 5000.
+    permission: tpfar.use
+    aliases:
+      - far
+      - rtp
+      - randomtp
+
+  nv:
+    description: Donne ou enlève un effet de night vision.
+    permission: nv.use
+    aliases:
+      - nightvision
+
+  sendto:
+    description: Retourne le joueur vers le serveur donné.
+    permission: sendto.use
+
+  discord :
+    description: Retourne le lien vers notre serveur Discord.
+    permission: discord.use

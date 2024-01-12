@@ -1,0 +1,29 @@
+lobby :
+  server : Lobby
+discord : https://discord.gg/b7wq3ScBUm
+chat :
+  prefix :
+    admin :
+      cooldownrtp : 0
+      before_pseudo : "§8[<GRADIENT:BC0000>Admin</GRADIENT:FD2C2C>§8] §c"
+      after_pseudo : " §7» §c"
+    staff :
+      cooldownrtp : 0
+      before_pseudo : "§8[<GRADIENT:2273FD>Staff</GRADIENT:00FBF3>§8] §b"
+      after_pseudo : " §7» §3"
+    mvp :
+      cooldownrtp : 60
+      before_pseudo : "§8[<GRADIENT:7000bd>MVP</GRADIENT:a600bb>§8] §b"
+      after_pseudo : "§7» §5"
+    vip+ :
+      cooldownrtp : 90
+      before_pseudo: "§8[<GRADIENT:9400FB>VIP+</GRADIENT:A700BC>§8] §d"
+      after_pseudo: " §7» §d"
+    vip :
+      cooldownrtp : 120
+      before_pseudo: "§8[<GRADIENT:C02EFB>VIP</GRADIENT:E142EA>§8] §d"
+      after_pseudo: " §7» "
+    default :
+      cooldownrtp : 240
+      before_pseudo: "§8[<GRADIENT:FBFBFB>Joueur</GRADIENT:6D6D6D>§8] §7"
+      after_pseudo: " §7» "
