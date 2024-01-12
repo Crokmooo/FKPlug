@@ -1,0 +1,12 @@
+link :
+  discord : "https://www.discord.gg/4utX5UVZnR"
+  mumble : "https://github.com/Crokmooo/MumbleRequest"
+
+server :
+  lobby : Lobby
+  uhc :
+    uhc1 :
+      name : UHCOmgServ
+      address : fksecond.mine.gg
+      port : 10005
+      status : Attente

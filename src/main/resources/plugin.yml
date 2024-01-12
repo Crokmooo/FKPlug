@@ -1,0 +1,44 @@
+name: FKPlugs
+version : 1.0
+author : Crokmoo
+main : fk.crokmoo.plug.Main
+api-version: 1.19
+
+commands:
+  sendto :
+    description: On tente !
+    permission: sendto.use
+  mumble:
+    description: mumble message
+    permission: mumble.use
+
+  discord:
+    description: discord message
+    permission: discord.use
+
+  bc:
+    description: Broadcast Message
+    permission: bc.use
+    aliases:
+      - broadcast
+
+
+  toggleTeleport:
+    description: Active la height border
+    permission: toggleTeleport.use
+    aliases:
+      - tt
+
+  lockinv:
+    description: Verrouille l'inventaire de tout les joueurs
+    permission: lockinv.use
+    aliases:
+      - li
+
+  openInvUHC:
+    description: OpenUHCInv
+    permission: openInvUHC.use
+
+  gm:
+    description: Switch Gamemode plus simplement
+    permission: gm.use
